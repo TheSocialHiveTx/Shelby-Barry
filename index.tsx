@@ -1,0 +1,1 @@
+// Deprecated: Moved to script tag in index.html

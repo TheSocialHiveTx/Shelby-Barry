@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shelby Berry | Senior Graphic Designer</title>
+    <meta name="description" content="Senior Graphic Designer Portfolio featuring 30+ years of creative expertise in Branding, Apparel, and Visual Communication.">
+    
+    <!-- Tailwind and Fonts -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #050505;
+            color: #e5e5e5;
+            overflow-x: hidden;
+        }
+        .font-display { font-family: 'Oswald', sans-serif; }
+        ::selection { background: #ea580c; color: white; }
+
+        /* Ambient Background Glow */
+        .bg-glow {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            background: 
+                radial-gradient(circle at 0% 0%, rgba(234, 88, 12, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 100% 100%, rgba(234, 88, 12, 0.03) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        /* Infinite Marquee */
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+            display: flex;
+            width: max-content;
+            animation: marquee 30s linear infinite;
+        }
+        .animate-marquee:hover { animation-play-state: paused; }
+
+        /* Page Transitions */
+        .page { display: none; opacity: 0; transition: opacity 0.5s ease-in-out; }
+        .page.active { display: block; opacity: 1; }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .hero-title { font-size: 4.5rem !important; line-height: 0.9 !important; }
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.11.0",
+    "react/": "https://esm.sh/react@^19.2.3/"
+  }
+}
+</script>
+</head>
+<body>
+    <div class="bg-glow"></div>
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-[#0a0a0a]/90 backdrop-blur-lg border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="#home" class="font-display text-xl md:text-2xl font-bold tracking-tighter text-white">SHELBY BERRY</a>
+                
+                <!-- Desktop Nav -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link text-gray-400 hover:text-white uppercase tracking-widest text-sm font-bold transition-colors">Home</a>
+                    <a href="#portfolio" class="nav-link text-gray-400 hover:text-white uppercase tracking-widest text-sm font-bold transition-colors">Portfolio</a>
+                    <a href="#about" class="nav-link text-gray-400 hover:text-white uppercase tracking-widest text-sm font-bold transition-colors">About</a>
+                    <a href="#contact" class="nav-link text-gray-400 hover:text-white uppercase tracking-widest text-sm font-bold transition-colors text-orange-500">Contact</a>
+                </div>
+
+                <!-- Mobile Nav Icon (Dots) -->
+                <div class="md:hidden flex space-x-4 text-[10px] font-bold uppercase tracking-tighter">
+                    <a href="#home" class="nav-link">Home</a>
+                    <a href="#portfolio" class="nav-link">Work</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#contact" class="nav-link text-orange-500">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Container -->
+    <div id="content">
+        
+        <!-- HOME PAGE -->
+        <section id="home" class="page active">
+            <div class="relative h-[90vh] flex items-center bg-black overflow-hidden">
+                <div class="absolute inset-0 opacity-30">
+                    <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1920&auto=format&fit=crop" class="w-full h-full object-cover grayscale scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-r from-black via-black/60 to-transparent"></div>
+                </div>
+                <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+                    <div class="max-w-5xl">
+                        <h1 class="hero-title font-display text-7xl md:text-[11rem] font-black text-white leading-[0.8] tracking-tighter mb-10 uppercase">
+                            DESIGN <br> 
+                            <span class="inline-block text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-orange-400 italic pr-6 -mr-6">BEYOND</span> <br> 
+                            LIMITS.
+                        </h1>
+                        <div class="flex items-stretch space-x-6 mb-12">
+                            <div class="w-1 bg-orange-600"></div>
+                            <p class="max-w-xl text-lg md:text-2xl text-gray-300 font-light leading-snug">
+                                Shelby Berry — Senior Creative Director. 30+ years of turning complex brand visions into iconic visual realities.
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-4">
+                            <a href="#portfolio" class="bg-white text-black px-10 py-5 font-bold uppercase tracking-widest hover:bg-orange-600 hover:text-white transition-all">View Portfolio</a>
+                            <a href="#contact" class="border border-white/20 text-white px-10 py-5 font-bold uppercase tracking-widest hover:bg-white/5 transition-all">Contact</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Client Marquee -->
+            <div class="py-12 bg-neutral-900/50 border-y border-white/5 overflow-hidden">
+                <div class="animate-marquee whitespace-nowrap" id="marquee-container">
+                    <!-- JS Injected -->
+                </div>
+            </div>
+
+            <!-- Featured Work -->
+            <section class="py-24 bg-black">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <h2 class="font-display text-4xl font-bold text-white mb-12 uppercase">Featured Work</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-1" id="featured-grid">
+                        <!-- JS Injected -->
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <!-- PORTFOLIO PAGE -->
+        <section id="portfolio" class="page">
+            <div class="py-24 px-4 max-w-7xl mx-auto">
+                <header class="mb-24">
+                    <span class="text-orange-600 font-bold uppercase tracking-[0.4em] text-xs mb-4 block">Archive</span>
+                    <h1 class="font-display text-6xl md:text-9xl font-bold text-white tracking-tighter uppercase leading-[0.8]">Selected <br> Works.</h1>
+                </header>
+                <div class="flex flex-wrap gap-3 mb-16" id="portfolio-filters">
+                    <!-- JS Injected -->
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-16" id="portfolio-grid">
+                    <!-- JS Injected -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT PAGE -->
+        <section id="about" class="page">
+            <div class="py-24 border-b border-white/5">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+                        <div class="relative">
+                            <img src="https://picsum.photos/seed/designer-shelby/800/1000?grayscale" class="w-full h-auto aspect-[4/5] object-cover border-l-8 border-orange-600 p-4 bg-neutral-900">
+                            <div class="absolute -bottom-8 -right-8 bg-orange-600 p-8 hidden md:block">
+                                <p class="font-display text-5xl font-black text-white italic">30+</p>
+                                <p class="text-white uppercase font-bold text-xs tracking-tighter">Years Pro</p>
+                            </div>
+                        </div>
+                        <div>
+                            <h1 class="font-display text-5xl md:text-7xl font-bold text-white mb-8">THE STORY</h1>
+                            <p class="text-xl text-gray-300 leading-relaxed mb-6 font-light">
+                                Hey there, my name is <span class="text-white font-semibold">Shelby Berry</span>. With over 30 years of experience, I bring a wealth of expertise in artwork, printing, marketing, and visual communications.
+                            </p>
+                            <p class="text-gray-400 leading-relaxed mb-6">
+                                My strategic eye for compelling visuals paired with technical know-how enables me to develop eye-catching designs that connect with audiences.
+                            </p>
+                            <div id="skills-container" class="space-y-6 mt-12">
+                                <!-- JS Injected -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT PAGE -->
+        <section id="contact" class="page">
+            <div class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-24">
+                    <div>
+                        <h1 class="font-display text-6xl md:text-9xl font-black text-white mb-12 tracking-tighter uppercase leading-[0.8]">
+                            Let's <br> <span class="text-orange-600">Collaborate.</span>
+                        </h1>
+                        <p class="text-xl text-gray-400 mb-12 font-light max-w-sm">From Houston to the world. Currently accepting new high-end projects.</p>
+                        <div class="space-y-6">
+                            <p class="text-white text-2xl font-bold">sberry007@yahoo.com</p>
+                            <p class="text-orange-500 text-xl font-bold">832-860-5874</p>
+                        </div>
+                    </div>
+                    <div class="bg-neutral-900/40 p-10 border border-white/5 shadow-2xl">
+                        <form id="contact-form" class="space-y-8">
+                            <div class="space-y-2">
+                                <label class="text-[10px] font-bold uppercase text-gray-500">Full Name</label>
+                                <input type="text" required placeholder="John Doe" class="w-full bg-black border border-white/10 p-4 text-white focus:border-orange-600 outline-none">
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-[10px] font-bold uppercase text-gray-500">Email Address</label>
+                                <input type="email" required placeholder="john@doe.com" class="w-full bg-black border border-white/10 p-4 text-white focus:border-orange-600 outline-none">
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-[10px] font-bold uppercase text-gray-500">Message</label>
+                                <textarea rows="5" required placeholder="Project details..." class="w-full bg-black border border-white/10 p-4 text-white focus:border-orange-600 outline-none resize-none"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-white text-black py-6 font-black uppercase tracking-widest hover:bg-orange-600 hover:text-white transition-all">Submit Inquiry</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-black py-12 border-t border-white/5 mt-24">
+        <div class="max-w-7xl mx-auto px-4 text-center md:text-left flex flex-col md:flex-row justify-between items-center gap-8">
+            <div>
+                <h3 class="font-display text-2xl font-bold text-white mb-2 uppercase tracking-tighter">Shelby Berry</h3>
+                <p class="text-gray-500 text-sm">Design Without Limits. &copy; 2024</p>
+            </div>
+            <div class="flex space-x-6 uppercase font-bold text-[10px] tracking-widest">
+                <a href="#home" class="text-gray-400 hover:text-white">Home</a>
+                <a href="#portfolio" class="text-gray-400 hover:text-white">Work</a>
+                <a href="#about" class="text-gray-400 hover:text-white">Bio</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // DATA
+        const PROJECTS = [
+            { id: 1, title: 'Voodoo Rodeo', category: 'Branding', desc: 'Brand identity and e-commerce web design.', img: 'https://picsum.photos/seed/voodoo/1200/800', tags: ['Apparel', 'Web'] },
+            { id: 2, title: 'Live Line Apparel', category: 'Lifestyle', desc: 'High-voltage lifestyle brand development.', img: 'https://picsum.photos/seed/liveline/1200/800', tags: ['Branding', 'Identity'] },
+            { id: 3, title: 'Engin-Air HVAC', category: 'Logo Design', desc: 'Modern logo identity for HVAC services.', img: 'https://picsum.photos/seed/engin/1200/800', tags: ['Logo', 'Print'] },
+            { id: 4, title: 'Saltwater Shootout', category: 'Print', desc: 'Comprehensive event branding for major tournament.', img: 'https://picsum.photos/seed/saltwater/1200/800', tags: ['Event', 'Graphics'] },
+            { id: 5, title: 'Hookspit Gear', category: 'Web', desc: 'Marketing management and web presence.', img: 'https://picsum.photos/seed/fishing/1200/800', tags: ['WordPress', 'Marketing'] },
+            { id: 6, title: 'Brain Institute', category: 'Branding', desc: 'Professional medical branding.', img: 'https://picsum.photos/seed/brain/1200/800', tags: ['Identity', 'Medical'] }
+        ];
+
+        const SKILLS = [
+            { name: 'Adobe Illustrator', level: 100 },
+            { name: 'Adobe Photoshop', level: 100 },
+            { name: 'Logo Design', level: 100 },
+            { name: 'Brand Strategy', level: 95 },
+            { name: 'Print Production', level: 100 },
+            { name: 'Web Design', level: 85 }
+        ];
+
+        const CLIENTS = ["NFL", "MLB", "MIKE TYSON", "WARNER BROS", "FANATICS", "TAPOUT", "BKFC", "REEBOK"];
+
+        // ROUTING
+        function initRouter() {
+            const handleRoute = () => {
+                const hash = window.location.hash || '#home';
+                document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+                const target = document.querySelector(hash);
+                if (target) {
+                    target.classList.add('active');
+                    window.scrollTo(0, 0);
+                }
+            };
+            window.addEventListener('hashchange', handleRoute);
+            handleRoute();
+        }
+
+        // RENDERERS
+        function renderMarquee() {
+            const container = document.getElementById('marquee-container');
+            const content = [...CLIENTS, ...CLIENTS].map(c => `
+                <span class="mx-12 text-4xl md:text-6xl font-display font-bold text-white/10 hover:text-orange-600/40 transition-colors uppercase cursor-default">${c}</span>
+            `).join('');
+            container.innerHTML = content;
+        }
+
+        function renderFeatured() {
+            const grid = document.getElementById('featured-grid');
+            grid.innerHTML = PROJECTS.slice(0, 3).map(p => `
+                <a href="#portfolio" class="group relative overflow-hidden aspect-[3/4] bg-neutral-900 block border-white/5 border-r last:border-0">
+                    <img src="${p.img}" alt="${p.title}" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 opacity-60 group-hover:opacity-100">
+                    <div class="absolute inset-0 p-8 flex flex-col justify-end bg-gradient-to-t from-black via-transparent">
+                        <span class="text-orange-500 font-bold uppercase tracking-widest text-[10px] mb-2">${p.category}</span>
+                        <h3 class="text-2xl font-display font-bold text-white uppercase">${p.title}</h3>
+                    </div>
+                </a>
+            `).join('');
+        }
+
+        function renderPortfolio(filter = 'All') {
+            const grid = document.getElementById('portfolio-grid');
+            const filters = ['All', 'Branding', 'Logo Design', 'Web', 'Print'];
+            
+            // Filter buttons
+            const filterContainer = document.getElementById('portfolio-filters');
+            filterContainer.innerHTML = filters.map(f => `
+                <button onclick="renderPortfolio('${f}')" class="px-8 py-3 text-[10px] font-bold uppercase tracking-widest transition-all border ${filter === f ? 'bg-orange-600 border-orange-600 text-white' : 'bg-white/5 border-white/10 text-gray-400 hover:text-white'}">
+                    ${f}
+                </button>
+            `).join('');
+
+            // Grid items
+            const filtered = filter === 'All' ? PROJECTS : PROJECTS.filter(p => p.category === filter || p.tags.includes(filter));
+            grid.innerHTML = filtered.map(p => `
+                <div class="group">
+                    <div class="relative overflow-hidden aspect-[16/10] bg-neutral-900 border border-white/10">
+                        <img src="${p.img}" class="w-full h-full object-cover grayscale transition-all duration-1000 group-hover:grayscale-0 group-hover:scale-105">
+                        <div class="absolute inset-0 p-12 flex flex-col justify-center items-center text-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-black/60 backdrop-blur-sm">
+                            <p class="text-white text-lg font-light mb-6">${p.desc}</p>
+                            <div class="flex gap-2">${p.tags.map(t => `<span class="text-[10px] border border-orange-500 text-orange-500 px-3 py-1 uppercase font-bold">${t}</span>`).join('')}</div>
+                        </div>
+                    </div>
+                    <div class="mt-8 flex justify-between items-center">
+                        <div>
+                            <h3 class="text-2xl font-display font-bold text-white uppercase group-hover:text-orange-500">${p.title}</h3>
+                            <p class="text-gray-500 text-xs uppercase tracking-widest mt-1 font-bold">${p.category}</p>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderSkills() {
+            const container = document.getElementById('skills-container');
+            container.innerHTML = SKILLS.map(s => `
+                <div>
+                    <div class="flex justify-between mb-3">
+                        <span class="text-white text-[10px] font-bold uppercase tracking-widest">${s.name}</span>
+                        <span class="text-orange-500 text-[10px] font-bold">${s.level}%</span>
+                    </div>
+                    <div class="h-[2px] w-full bg-white/5">
+                        <div class="h-full bg-orange-600" style="width: ${s.level}%"></div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // INITIALIZE
+        document.addEventListener('DOMContentLoaded', () => {
+            initRouter();
+            renderMarquee();
+            renderFeatured();
+            renderPortfolio();
+            renderSkills();
+
+            // Contact Form Handle
+            document.getElementById('contact-form').addEventListener('submit', (e) => {
+                e.preventDefault();
+                const btn = e.target.querySelector('button');
+                btn.innerHTML = 'SENT SUCCESSFULLY';
+                btn.classList.add('bg-orange-600', 'text-white');
+                e.target.reset();
+            });
+        });
+    </script>
+</body>
+</html>

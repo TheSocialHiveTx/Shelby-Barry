@@ -1,0 +1,1 @@
+// Deprecated: Now using index.html directly for static hosting
